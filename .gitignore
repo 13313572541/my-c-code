@@ -19,10 +19,11 @@ x64/
 Debug/
 Release/
 
-# Python cache
-__pycache__/
+# Python (keep repo C-only)
+*.py
 *.pyc
 *.pyo
+__pycache__/
 
 # OS junk
 *.jpg

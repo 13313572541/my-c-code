@@ -1,17 +1,22 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-int main() {
-    int a;
-
-	scanf("%d", &a);
-
-	for (int i = 2; i <a; i++) {
-		if (a % i == 0) {
-			printf("No");
-			return 0;
+int findMax(int a[], int n) {
+	int max = a[0];
+	for (int i = 1; i < n; i++) {
+		if (a[i] > max) {
+			max = a[i];
 		}
 	}
-	printf("Yes");
+	return max;	
+}
+
+int main() {
+	int a[10];
+	scanf("%d %d %d %d %d %d %d %d %d %d", &a[0], &a[1], &a[2], &a[3], &a[4], &a[5], &a[6], &a[7], &a[8], &a[9]);
+	
+	int max = findMax(a, 10);
+	printf("The maximum element is: %d\n", max);
+
     return 0;
 }

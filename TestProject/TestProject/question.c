@@ -1,34 +1,32 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-int findMax(int a[], int n) {
-    int max = a[0];
-    for (int i = 1; i < n; i++) {
-        if (a[i] > max) {
-            max = a[i];
+    int removeElement(int a[], int n, int val) {
+        int j = 0;                      // j = 已留下的元素个数
+        for (int i = 0; i < n; i++) {
+            if (a[i] != val) {          // 不是要删的 → 留下
+                a[j] = a[i];
+                j++;
+            }
+            // 是要删的 → 跳过，什么都不做
         }
+        return j;                       // j 就是新长度
     }
-    return max;
-}
 
-int findMin(int a[], int n) {
-    int min = a[0];
-    for (int i = 1; i < n; i++) {
-        if (a[i] < min) {
-            min = a[i];
+    int main() {
+        int a[10];
+        for (int i = 0; i < 10; i++) {
+            scanf("%d", &a[i]);
         }
+        int val;
+        scanf("%d", &val);
+
+        int newLen = removeElement(a, 10, val);
+
+        for (int i = 0; i < newLen; i++) {
+            printf("%d ", a[i]);
+        }
+        printf("\n%d\n", newLen);
+
+        return 0;
     }
-    return min;
-}
-
-int main() {
-    int a[10];
-    scanf("%d %d %d %d %d %d %d %d %d %d", &a[0], &a[1], &a[2], &a[3], &a[4], &a[5], &a[6], &a[7], &a[8], &a[9]);
-
-    int max = findMax(a, 10);
-    int min = findMin(a, 10);
-
-    printf("max-min: %d\n", max - min);
-
-    return 0;
-}
